@@ -1,0 +1,22 @@
+{
+  "name": "reaction-test",
+  "version": "0.0.0",
+  "homepage": "https://github.com/danlee9/reaction-test",
+  "description": "simple game to test reaction time",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/assets/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-animate": "~1.4.3",
+    "animate.css": "~3.4.0"
+  }
+}

@@ -25,9 +25,17 @@ app.use(morgan('dev'));
 // connect to database
 mongoose.connect(config.database);
 
+// set static files location for front end
+app.use(express.static(__dirname + '/public'));
+
 // register api routes
 var apiRoutes = require('./api/routes/routes')(express);
 app.use('/api', apiRoutes);
+
+// main route to to send users to front end
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 // start server
 app.listen(config.port);

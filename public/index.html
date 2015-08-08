@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/lib/animate.css/animate.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+    <script src="assets/lib/angular/angular.js"></script>
+    <script src="assets/lib/angular-route/angular-route.js"></script>
+    <script src="assets/lib/angular-animate/angular-animate.js"></script>
+
+    <script src="app/shared/navbar/navCtrl.js"></script>
+    <script src="app.routes.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body ng-app="reactionTest">
+    <!-- NAVBAR -->
+    <div ng-include="'app/shared/navbar/navbar.html'" ng-controller="navController as nav"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+body {
+    background-color: #FF7373;
+}
+
+.navbar {
+    border-radius: 0;
+    background-color: steelblue;
+    border-color: steelblue;
+}
+
+.navbar-inverse .navbar-brand {
+    margin-top: -2px;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-text, .navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-nav > li > a:hover {
+    color: lightcyan;
+}

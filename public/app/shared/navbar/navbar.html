@@ -1,17 +1,15 @@
-<header>
-    <div class="navbar navbar-inverse" ng-if="nav.loggedIn">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="#/" class="navbar-brand"><span class="glyphicon glyphicon-fire text-danger"></span> Reaction Test</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="#/user"><span class="glyphicon glyphicon-user"></span> User Page</a></li>
-                <li><a href="#/scores"><span class="glyphicon glyphicon-signal"></span> High Scores</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-if="nav.loggedIn" class="navbar-text">Hello {{nav.user.name}}!</li>
-                <li ng-if="nav.loggedIn"><a href="#/login" ng-click="nav.doLogout()">Logout</a></li>
-            </ul>
+<div class="navbar navbar-inverse" ng-if="nav.loggedIn">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#/" class="navbar-brand"><span class="glyphicon glyphicon-fire text-danger"></span> Reaction Test</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#/user"><span class="glyphicon glyphicon-user"></span> User Page</a></li>
+            <li><a href="#/scores"><span class="glyphicon glyphicon-signal"></span> High Scores</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-if="nav.loggedIn" class="navbar-text">Hello {{nav.user.name}}!</li>
+            <li ng-if="nav.loggedIn"><a href="#/login" ng-click="nav.doLogout()">Logout</a></li>
+        </ul>
     </div>
-</header>
+</div>

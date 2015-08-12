@@ -1,1 +1,1 @@
-angular.module('reactionTest', ['navCtrl']);
+angular.module('reactionTest', ['app.routes', 'navCtrl', 'userForm', 'formCtrl']);

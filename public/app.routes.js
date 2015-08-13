@@ -11,4 +11,12 @@ angular.module('app.routes', ['ngRoute'])
                 controller: 'signupController',
                 controllerAs: 'user'
             })
+            .when('/login', {
+                templateUrl: 'app/components/form/login.html',
+                controller: 'loginController',
+                controllerAs: 'user'
+            })
+            .when('/guest', {
+
+            })
     }]);

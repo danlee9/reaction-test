@@ -57,8 +57,10 @@ module.exports = function(express) {
             user.name = req.body.name;
             user.username = req.body.username;
             user.password = req.body.password;
-            user.highscoreA = req.body.highscoreA;
-            user.highscoreB = req.body.highscoreB;
+            if (req.body.highscoreA)
+                user.highscoreA = req.body.highscoreA;
+            if (req.body.highscoreB)
+                user.highscoreB = req.body.highscoreB;
 
             user.save(function(err) {
                 if (err) {

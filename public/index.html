@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/lib/animate.css/animate.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/lib/angular/angular.js"></script>
     <script src="assets/lib/angular-route/angular-route.js"></script>
     <script src="assets/lib/angular-animate/angular-animate.js"></script>
@@ -15,14 +16,16 @@
     <script src="app/shared/services/authService.js"></script>
     <script src="app/components/form/formCtrl.js"></script>
     <script src="app/components/form/userForm.js"></script>
+    <script src="app/components/game/gameCtrl.js"></script>
+    <script src="app/components/game/game.js"></script>
     <script src="app/shared/navbar/navCtrl.js"></script>
     <script src="app.routes.js"></script>
     <script src="app.js"></script>
 
 </head>
-<body ng-app="reactionTest">
+<body ng-app="reactionTest" ng-controller="navController as nav">
     <!-- Navbar -->
-    <header ng-include="'app/shared/navbar/navbar.html'" ng-controller="navController as nav"></header>
+    <header ng-include="'app/shared/navbar/navbar.html'"></header>
 
     <main class="container">
         <!-- Angular views -->

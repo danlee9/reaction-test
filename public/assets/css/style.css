@@ -19,3 +19,59 @@ body {
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-nav > li > a:hover {
     color: lightcyan;
 }
+
+#game-container {
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    height: 500px;
+    background-color: lightcyan;
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.75);
+    overflow: auto;
+}
+
+#box {
+    position: relative;
+    width: 10%;
+    height: 50px;
+    border: 1px solid dodgerblue;
+    box-shadow: 0px 2px 33px 6px rgba(240,158,87,1);
+}
+
+#overlay {
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 38%;
+    font-size: 20px;
+}
+
+.text-container {
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+
+.btns {
+    text-align: center;
+}
+
+.play-btn {
+    height: 70px;
+    width: 220px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#stats {
+    width: 89%;
+    background-color: lightcyan;
+    font-size: 12px;
+    font-weight: bold;
+    overflow: auto;
+}
+
+.stat {
+    float: left;
+    padding: 5px;
+    width: 23%;
+}

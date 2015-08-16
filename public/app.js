@@ -1,1 +1,1 @@
-angular.module('reactionTest', ['app.routes', 'navCtrl', 'userForm', 'formCtrl']);
+angular.module('reactionTest', ['app.routes', 'navCtrl', 'userForm', 'formCtrl', 'gameCtrl', 'gameWidget']);

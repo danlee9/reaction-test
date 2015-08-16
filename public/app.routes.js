@@ -17,6 +17,8 @@ angular.module('app.routes', ['ngRoute'])
                 controllerAs: 'user'
             })
             .when('/guest', {
-
+                templateUrl: 'app/components/game/guest.html',
+                controller: 'guestController',
+                controllerAs: 'guest'
             })
     }]);

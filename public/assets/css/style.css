@@ -20,17 +20,21 @@ body {
     color: lightcyan;
 }
 
-#game-container {
-    position: relative;
+.game-container {
     width: 80%;
-    margin-left: 10%;
+    margin: 10px auto;
+}
+
+.game-space {
+    position: relative;
     height: 500px;
     background-color: lightcyan;
     box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.75);
     overflow: auto;
+    margin-top: 10px;
 }
 
-#box {
+.box {
     position: relative;
     width: 10%;
     height: 50px;
@@ -38,17 +42,12 @@ body {
     box-shadow: 0px 2px 33px 6px rgba(240,158,87,1);
 }
 
-#overlay {
+.overlay {
     position: absolute;
     text-align: center;
     top: 45%;
     left: 38%;
     font-size: 20px;
-}
-
-.text-container {
-    margin-left: 10%;
-    margin-bottom: 10px;
 }
 
 .btns {
@@ -62,16 +61,58 @@ body {
     font-size: 20px;
 }
 
-#stats {
-    width: 89%;
+.stats {
     background-color: lightcyan;
     font-size: 12px;
     font-weight: bold;
     overflow: auto;
+    margin-top: 10px;
 }
 
 .stat {
     float: left;
     padding: 5px;
     width: 23%;
+}
+
+/* Animations
+================ */
+
+.spinner {
+    animation: spin 1s infinite;
+    -moz-animation: spin 1s infinite;
+    -webkit-animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+@-moz-keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+@-webkit-keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.box.ng-hide-remove {
+    animation: zoomIn 0.3s both ease;
+    -moz-animation: zoomIn 0.3s both ease;
+    -webkit-animation: zoomIn 0.3s both ease;
+}
+
+.box.ng-hide-add {
+    animation: fadeOut 0.1s both ease;
+    -moz-animation: fadeOut 0.1s both ease;
+    -webkit-animation: fadeOut 0.1s both ease;
+}
+
+.ng-enter {
+    animation: fadeInUp 0.8s both ease;
+    -moz-animation: fadeInUp 0.8s both ease;
+    -webkit-animation: fadeInUp 0.8s both ease;
 }

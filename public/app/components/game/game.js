@@ -6,12 +6,14 @@ angular.module('gameWidget', [])
             templateUrl: 'app/components/game/game-area.html',
             transclude: true,
             scope: {
-                score: '&'
+                score: '&',
+                mode: '='
             },
-            controller: ['$scope', function($scope) {
+            controller: ['$scope', '$element', function($scope, $element) {
                 var vm = this;
                 vm.hidden = true;
                 vm.gameOver = false;
+                vm.interval = 3000; // interval between shape creation (3 seconds)
 
                 var timer;
                 var createdTime;
@@ -21,7 +23,7 @@ angular.module('gameWidget', [])
                 vm.totalTime = 0;
 
                 // get box div
-                var box = $('#box');
+                var box = $element.find('.box');
 
                 // random color generator
                 function randomColor() {
@@ -38,32 +40,35 @@ angular.module('gameWidget', [])
                 // box generator
                 vm.makeBox = function() {
                     vm.gameOver = false;
+
                     // horizontal position, vertical position, box color
                     var horizontal = (Math.random() * 90) + '%';
                     var vertical = (Math.random() * 90) + '%';
                     var color = randomColor();
-                    // set styles
-                    box.css({left: horizontal, top: vertical, 'background-color': color});
-
-                    var shape = Math.random();
-                    if (shape<0.5)
-                        box.css('border-radius', '50%');
-                    else
-                        box.css('border-radius', '0');
 
                     // set random timer to show
-                    var random = Math.random() * 5000; // max of 5 seconds
+                    var random = Math.random() * vm.interval; // max of 3 seconds
                     timer = $timeout(function() {
+                        // set styles
+                        box.css({left: horizontal, top: vertical, 'background-color': color});
+
+                        // set shape
+                        var shape = Math.random();
+                        if (shape<0.5)
+                            box.css('border-radius', '50%');
+                        else
+                            box.css('border-radius', '0');
+
                         vm.hidden = false;
                         createdTime = Date.now();
                     }, random)
                 };
 
                 vm.boxClick = function() {
+                    vm.hidden = true;
                     clickedTime = Date.now();
                     vm.reactionTime = (clickedTime-createdTime)/1000;
                     vm.totalTime += vm.reactionTime;
-                    vm.hidden = true;
                     vm.count++;
                     if (vm.count < 20) {
                         vm.makeBox();
@@ -82,8 +87,24 @@ angular.module('gameWidget', [])
                     vm.totalTime = 0;
                     vm.reactionTime = 0;
                     $timeout.cancel(timer);
+                    vm.hidden = true;
                 };
+
+                // cancel timer when DOM element is destroyed on route changes
+                $scope.$on('$destroy', function(e) {
+                    $timeout.cancel(timer);
+                });
             }],
             controllerAs: 'game'
         };
     }])
+
+.directive('gameMod', function() {
+        return {
+            require: 'gameArea',
+            restrict: 'A',
+            link: function(scope, element, attrs, gameAreaCtrl) {
+                gameAreaCtrl.interval = 1000;
+            }
+        };
+    });

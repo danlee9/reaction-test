@@ -11,7 +11,25 @@ angular.module('formCtrl', ['userService', 'authService'])
             })
         };
     }])
-.controller('loginController', ['Auth', function(Auth) {
+.controller('loginController', ['$location', 'Auth', function($location, Auth) {
         var vm = this;
         vm.type = 'login';
+        vm.submitInfo = function() {
+            // to show loading
+            vm.processing = true;
+
+            // clear error
+            vm.error = '';
+
+            // call login from Auth service
+            Auth.login(vm.userData.username, vm.userData.password)
+                .success(function(data) {
+                    vm.processing = false;
+
+                    if (data.success)
+                        $location.path('/user');
+                    else
+                        vm.error = data.message;
+                });
+        };
     }])

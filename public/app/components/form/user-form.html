@@ -16,7 +16,10 @@
                 <input type="password" class="form-control" ng-model="user.userData.password"/>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-lg btn-block btn-success">Submit</button>
+                <button type="submit" class="btn btn-lg btn-block btn-success">
+                    <span ng-if="!user.processing">Submit</span>
+                    <span ng-if="user.processing" class="glyphicon glyphicon-repeat spinner"></span>
+                </button>
             </div>
         </form>
     </div>

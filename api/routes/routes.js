@@ -30,6 +30,7 @@ module.exports = function(express) {
                             message: "Authentication failed. Wrong password"
                         });
                     } else {
+                        var id = user._id;
                         var token = jwt.sign({
                             name: user.name,
                             username: user.username
@@ -40,7 +41,8 @@ module.exports = function(express) {
                         res.json({
                             success: true,
                             message: "Enjoy your token!",
-                            token: token
+                            token: token,
+                            id: id
                         });
                     }
                 }

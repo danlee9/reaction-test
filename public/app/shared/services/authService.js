@@ -12,14 +12,23 @@ angular.module('authService', [])
             return $window.localStorage.getItem('token');
         };
 
-        // function to set or clear token
+        // function to also grab user id
+        authTokenFactory.getId = function() {
+            return $window.localStorage.getItem('userId');
+        };
+
+        // function to set or clear token and userId
         // if a token is passed, set token
         // if there is no token, clear it from local storage
-        authTokenFactory.setToken = function(token) {
-            if (token)
+        authTokenFactory.setToken = function(token, id) {
+            if (token) {
                 $window.localStorage.setItem('token', token);
-            else
+                $window.localStorage.setItem('userId', id);
+            } else{
                 $window.localStorage.removeItem('token');
+                $window.localStorage.removeItem('userId');
+            }
+
         };
 
         return authTokenFactory;
@@ -42,7 +51,7 @@ angular.module('authService', [])
                 password: password
             })
                 .success(function(data) {
-                    AuthToken.setToken(data.token);
+                    AuthToken.setToken(data.token, data.id);
                     return data;
                 });
         };
@@ -72,3 +81,35 @@ angular.module('authService', [])
         return authFactory;
     }])
 
+// ============================
+// application configuration to integrate tokens into requests
+// ============================
+.factory('AuthInterceptor', ['$q', '$location', 'AuthToken', function AuthInterceptorFactory($q, $location, AuthToken) {
+        var interceptorFactory = {};
+
+        // for all http requests
+        interceptorFactory.request = function(config) {
+            // grab token
+            var token = AuthToken.getToken();
+
+            // if token exists add to header as x-access-token
+            if (token)
+                config.headers['x-access-token'] = token;
+
+            return config;
+        };
+
+        // on response errors
+        interceptorFactory.responseError = function(response) {
+            // if 403 response
+            if (response.status == 403) {
+                AuthToken.setToken();
+                $location.path('/login');
+            }
+
+            // return errors from server as promise
+            return $q.reject(response);
+        };
+
+        return interceptorFactory;
+    }]);

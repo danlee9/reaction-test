@@ -8,8 +8,8 @@ var UserSchema = new Schema({
     name: String,
     username: {type: String, required: true, index: {unique: true}},
     password: {type: String, required: true, select: false},
-    highscoreA: String,
-    highscoreB: String
+    bestscoreA: String,
+    bestscoreB: String
 });
 
 UserSchema.pre('save', function(next) {

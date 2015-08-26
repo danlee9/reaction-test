@@ -21,6 +21,15 @@ angular.module('gameWidget', [])
                 vm.reactionTime = 0;
                 vm.count = 0;
                 vm.totalTime = 0;
+                $scope.score().then(function(response) {
+                    vm.bestScore = response;
+                });
+
+                $scope.$watch('mode', function(newVal, oldVal) {
+                    $scope.score().then(function(response) {
+                        vm.bestScore = response;
+                    });
+                }, true);
 
                 // get box div
                 var box = $element.find('.box');
@@ -74,7 +83,9 @@ angular.module('gameWidget', [])
                         vm.makeBox();
                     } else {
                         vm.finalScore = vm.totalTime;
-                        vm.bestScore = $scope.score({score: vm.finalScore});
+                        $scope.score({score: vm.finalScore}).then(function(response) {
+                            vm.bestScore = response;
+                        });
                         vm.gameOver = true;
                         vm.count = 0;
                         vm.totalTime = 0;

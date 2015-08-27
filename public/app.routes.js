@@ -26,4 +26,14 @@ angular.module('app.routes', ['ngRoute'])
                 controller: 'userController',
                 controllerAs: 'user'
             })
+            .when('/profile', {
+                templateUrl: 'app/components/profile/profile.html',
+                controller: 'profileController',
+                controllerAs: 'profile'
+            })
+            .when('/scores', {
+                templateUrl: 'app/components/scores/scores.html',
+                controller: 'scoresController',
+                controllerAs: 'scores'
+            })
     }]);

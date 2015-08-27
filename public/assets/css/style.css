@@ -2,6 +2,11 @@ body {
     background-color: #FF7373;
 }
 
+main {
+    min-height: 800px;
+    overflow: hidden;
+}
+
 .navbar {
     border-radius: 0;
     background-color: steelblue;
@@ -66,7 +71,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     overflow: auto;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .stat {
@@ -111,8 +116,8 @@ body {
     -webkit-animation: fadeOut 0.1s both ease;
 }
 
-.ng-enter {
-    animation: fadeInUp 0.8s both ease;
-    -moz-animation: fadeInUp 0.8s both ease;
-    -webkit-animation: fadeInUp 0.8s both ease;
+.change.ng-enter {
+    animation: slideInUp 0.8s both ease;
+    -moz-animation: slideInUp 0.8s both ease;
+    -webkit-animation: slideInUp 0.8s both ease;
 }

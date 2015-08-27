@@ -1,4 +1,4 @@
-angular.module('reactionTest', ['ngAnimate', 'app.routes', 'mainCtrl', 'userForm', 'formCtrl', 'gameCtrl', 'gameWidget'])
+angular.module('reactionTest', ['ngAnimate', 'app.routes', 'mainCtrl', 'userForm', 'formCtrl', 'gameCtrl', 'gameWidget', 'profileCtrl'])
 
 // configuration to integrate token into requests
 .config(['$httpProvider', function($httpProvider) {

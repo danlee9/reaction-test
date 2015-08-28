@@ -6,12 +6,12 @@ angular.module('userService', [])
 
         // get a single user
         userFactory.get = function(id) {
-            return $http.get('/api/users/' + id);
+            return $http.get('/api/users/' + id, {cache: true});
         };
 
         // get all users
         userFactory.all = function() {
-            return $http.get('/api/users');
+            return $http.get('/api/users', {cache: true});
         };
 
         // create a user

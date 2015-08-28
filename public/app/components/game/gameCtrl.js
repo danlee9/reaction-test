@@ -23,12 +23,13 @@ angular.module('gameCtrl', ['authService', 'userService'])
         };
     }])
 
-.controller('userController', ['$q', 'AuthToken', 'User', function($q, AuthToken, User) {
+.controller('userController', ['$q', '$cacheFactory', 'AuthToken', 'User', function($q, $cacheFactory, AuthToken, User) {
         var vm = this;
 
         // grab id
         var id = AuthToken.getId();
 
+        var cache = $cacheFactory.get('$http');
 
 
         // set game mode
@@ -37,6 +38,9 @@ angular.module('gameCtrl', ['authService', 'userService'])
 
         vm.checkScore = function(score) {
             // score object to send in http request
+            cache.remove('/api/users');
+            cache.remove('/api/users' + id);
+
             var user;
             var deferred = $q.defer();
             User.get(id).success(function(data) {

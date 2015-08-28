@@ -1,26 +1,20 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Panel heading</div>
+    <div class="panel-heading">User Scores</div>
 
     <!-- Table -->
     <table class="table">
         <tr>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Best Score A</th>
-            <th>Best Score B</th>
+            <th><a href="" ng-click="scores.order('name')">Name</a></th>
+            <th><a href="" ng-click="scores.order('username')">Username</a></th>
+            <th><a href="" ng-click="scores.order('bestscoreA')">Best Score A</a></th>
+            <th><a href="" ng-click="scores.order('bestscoreB')">Best Score B</a></th>
         </tr>
-        <tr>
-            <td>Blah</td>
-            <td>Blahname</td>
-            <td>10000</td>
-            <td>1233</td>
-        </tr>
-        <tr>
-            <td>Blah2</td>
-            <td>Blahname2</td>
-            <td>50000</td>
-            <td>19999</td>
+        <tr ng-repeat="user in scores.users | orderBy: scores.predicate : scores.reverse">
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.bestscoreA}}</td>
+            <td>{{user.bestscoreB}}</td>
         </tr>
     </table>
 </div>

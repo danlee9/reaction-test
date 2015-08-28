@@ -30,7 +30,7 @@ angular.module('mainCtrl', ['authService'])
             vm.user = {};
 
             // clear angular cache
-            cache.remove('/api/me');
+            cache.removeAll();
             $location.path('/');
         }
     }]);

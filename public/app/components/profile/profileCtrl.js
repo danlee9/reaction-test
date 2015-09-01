@@ -5,6 +5,7 @@ angular.module('profileCtrl', ['authService', 'userService'])
         var id = AuthToken.getId();
 
         User.get(id).success(function(data) {
+            // display user data
             vm.user = data;
         });
     }]);

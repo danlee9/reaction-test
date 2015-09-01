@@ -6,21 +6,23 @@ angular.module('gameWidget', [])
             templateUrl: 'app/components/game/game-area.html',
             transclude: true,
             scope: {
-                score: '&',
-                mode: '='
+                score: '&', // function to update and display user's best score
+                mode: '=' // checks for different game modes
             },
             controller: ['$scope', '$element', function($scope, $element) {
                 var vm = this;
-                vm.hidden = true;
+                vm.hidden = true; // hides box
                 vm.gameOver = false;
                 vm.interval = 3000; // interval between shape creation (3 seconds)
 
-                var timer;
-                var createdTime;
-                var clickedTime;
-                vm.reactionTime = 0;
-                vm.count = 0;
-                vm.totalTime = 0;
+                var timer; // for reference to $timeout
+                var createdTime; // time box is created
+                var clickedTime; // time box is clicked on
+                vm.reactionTime = 0; // time it takes to click on box from when it appears
+                vm.count = 0; // amount of clicks
+                vm.totalTime = 0; // cumulative reaction time
+
+                // adds best score to stats
                 $scope.score().then(function(response) {
                     vm.bestScore = response;
                 });
@@ -68,7 +70,7 @@ angular.module('gameWidget', [])
                         else
                             box.css('border-radius', '0');
 
-                        vm.hidden = false;
+                        vm.hidden = false; // show box or circle
                         createdTime = Date.now();
                     }, random)
                 };

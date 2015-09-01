@@ -2,8 +2,11 @@ angular.module('formCtrl', ['userService', 'authService'])
 
 .controller('signupController', ['User', function(User) {
         var vm = this;
+
+        // check to see if form is to sign up a user or to log in a user
         vm.type = 'signup';
         vm.submitInfo = function() {
+            // create new user with form data
             User.create(vm.userData).success(function(data) {
                 // clear form
                 vm.userData = {};

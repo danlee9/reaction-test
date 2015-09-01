@@ -12,6 +12,7 @@ var UserSchema = new Schema({
     bestscoreB: String
 });
 
+// before saving
 UserSchema.pre('save', function(next) {
     var user = this;
 

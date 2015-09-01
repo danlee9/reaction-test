@@ -51,7 +51,6 @@ module.exports = function(express) {
 
     apiRouter.route('/users')
         .post(function(req, res) {
-            console.log("sending");
             // new instance of User model
             var user = new User();
 
@@ -117,10 +116,12 @@ module.exports = function(express) {
         }
     });
 
+    // test to show alternate route syntax
     apiRouter.get('/', function(req, res) {
         res.json({message: 'Hooray welcome to our API!'});
     });
 
+    // find specific user
     apiRouter.route('/users/:user_id')
         .get(function(req, res) {
             User.findById(req.params.user_id, function(err, user) {
@@ -154,7 +155,9 @@ module.exports = function(express) {
             })
         });
 
+    // get information about user for use to display in navbar
     apiRouter.get('/me', function(req, res) {
+        // req.decoded created from authenticate route
         res.send(req.decoded);
     });
 

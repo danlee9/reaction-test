@@ -4,7 +4,9 @@ angular.module('app.routes', ['ngRoute'])
 
         $routeProvider
             .when('/', {
-                templateUrl: 'app/home.html'
+                templateUrl: 'app/home.html',
+                controller: 'homeController',
+                controllerAs: 'home'
             })
             .when('/signup', {
                 templateUrl: 'app/components/form/signup.html',
@@ -35,5 +37,5 @@ angular.module('app.routes', ['ngRoute'])
                 templateUrl: 'app/components/scores/scores.html',
                 controller: 'scoresController',
                 controllerAs: 'scores'
-            })
+            });
     }]);

@@ -35,6 +35,8 @@ angular.module('gameWidget', [])
 
                 // get box div
                 var box = $element.find('.box');
+                var overlay = $element.find('.overlay');
+                var gameSpace = $element.find('.game-space');
 
                 // random color generator
                 function randomColor() {
@@ -89,6 +91,16 @@ angular.module('gameWidget', [])
                             vm.bestScore = response;
                         });
                         vm.gameOver = true;
+                        var areaHeight = gameSpace.height();
+                        var areaWidth = gameSpace.width();
+                        $timeout(function() {
+                            var overlayHeight = overlay.height();
+                            var overlayWidth = overlay.width();
+                            var left = (1 - overlayWidth/areaWidth)/2 * 100;
+                            var top = (1 - overlayHeight/areaHeight)/2 * 100;
+                            // center overlay
+                            overlay.css({left: left + '%', top: top + '%'});
+                        }, 100);                                               
                         vm.count = 0;
                         vm.totalTime = 0;
                         vm.reactionTime = 0;

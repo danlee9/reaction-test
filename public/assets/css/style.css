@@ -49,9 +49,6 @@ main {
 
 .overlay {
     position: absolute;
-    text-align: center;
-    top: 45%;
-    left: 38%;
     font-size: 20px;
 }
 

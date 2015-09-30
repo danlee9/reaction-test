@@ -13,8 +13,8 @@
         <tr ng-repeat="user in scores.users | orderBy: scores.predicate : scores.reverse">
             <td>{{user.name}}</td>
             <td>{{user.username}}</td>
-            <td>{{user.bestscoreA}}</td>
-            <td>{{user.bestscoreB}}</td>
+            <td>{{user.bestscoreA | number: 3}}</td>
+            <td>{{user.bestscoreB | number: 3}}</td>
         </tr>
     </table>
 </div>

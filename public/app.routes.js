@@ -1,12 +1,17 @@
-angular.module('app.routes', ['ngRoute'])
+angular.module('app.routes', ['ngRoute', 'authService'])
 
 .config(['$routeProvider', function($routeProvider) {
 
         $routeProvider
             .when('/', {
                 templateUrl: 'app/home.html',
-                controller: 'homeController',
-                controllerAs: 'home'
+                resolve: {
+                    login: ['$location', 'Auth', function($location, Auth) {
+                        if (Auth.isLoggedIn()) {
+                            $location.path('/user');
+                        }
+                    }]
+                }
             })
             .when('/signup', {
                 templateUrl: 'app/components/form/signup.html',

@@ -42,5 +42,6 @@ angular.module('app.routes', ['ngRoute', 'authService'])
                 templateUrl: 'app/components/scores/scores.html',
                 controller: 'scoresController',
                 controllerAs: 'scores'
-            });
+            })
+            .otherwise('/');
     }]);

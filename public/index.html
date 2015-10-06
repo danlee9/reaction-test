@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Reaction Test</title>
+
+    <!-- build:css ./assets/combined.css -->
     <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="assets/lib/animate.css/animate.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
+    <!-- endbuild -->
 
+    <!-- build:js ./assets/combined.js -->
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/lib/angular/angular.js"></script>
     <script src="assets/lib/angular-route/angular-route.js"></script>
     <script src="assets/lib/angular-animate/angular-animate.js"></script>
-
+      
     <script src="app/shared/services/userService.js"></script>
     <script src="app/shared/services/authService.js"></script>
     <script src="app/components/form/formCtrl.js"></script>
@@ -23,6 +27,7 @@
     <script src="app/components/scores/scoresCtrl.js"></script>
     <script src="app.routes.js"></script>
     <script src="app.js"></script>
+    <!-- endbuild --> 
 
 </head>
 <body ng-app="reactionTest" ng-controller="mainController as main">

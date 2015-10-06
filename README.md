@@ -92,6 +92,9 @@ Scores
  cd reaction-test
  npm install
  bower install
+ gulp build
  node server or npm start
+
+ set environment in config.js to either '/public' or '/build' to serve static files from their respective directories
 ```
 

@@ -9,7 +9,7 @@ After 10 clicks total reaction time is added together for a score
 In mode B the shapes appear faster
 ```
 
-Deployed to: https://ancient-brushlands-75560.herokuapp.com/
+Deployed to: https://reaction-test.herokuapp.com/
 ```
 Sign in with username newuser and password access or create a new account
 Game can also be played as a guest where high scores are saved to local storage

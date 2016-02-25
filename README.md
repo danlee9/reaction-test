@@ -11,8 +11,8 @@ In mode B the shapes appear faster
 
 Deployed to: https://reaction-test.herokuapp.com/
 ```
-Sign in with username newuser and password access or create a new account
-Game can also be played as a guest where high scores are saved to local storage
+Sign in with username "newuser" and password "access" or create a new account
+Game can also be played as a guest where high scores are saved to session storage
 ```
 
 Demonstrates the following points:

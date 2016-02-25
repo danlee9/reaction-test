@@ -1,7 +1,19 @@
 Reaction Test
 =========================
 
-MEAN Stack App featuring a simple game testing reaction speed. 
+MEAN Stack App featuring a simple game testing reaction speed.
+```
+Press play to start
+Shapes will appear on screen and disappear once clicked
+After 10 clicks total reaction time is added together for a score
+In mode B the shapes appear faster
+```
+
+Deployed to: https://ancient-brushlands-75560.herokuapp.com/
+```
+Sign in with username newuser and password access or create a new account
+Game can also be played as a guest where high scores are saved to local storage
+```
 
 Demonstrates the following points:
 

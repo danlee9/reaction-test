@@ -83,7 +83,7 @@ angular.module('gameWidget', [])
                     vm.reactionTime = (clickedTime-createdTime)/1000;
                     vm.totalTime += vm.reactionTime;
                     vm.count++;
-                    if (vm.count < 20) {
+                    if (vm.count < 10) {
                         vm.makeBox();
                     } else {
                         vm.finalScore = vm.totalTime;

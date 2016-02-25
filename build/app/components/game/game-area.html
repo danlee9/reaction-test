@@ -1,0 +1,26 @@
+<div class="game-container">
+    <div class="well text-center">
+        <h1>Test your reaction!</h1>
+
+        <div ng-transclude></div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">Reaction Time: {{game.reactionTime | number: 3}}</div>
+        <div class="stat">Total Time: {{game.totalTime | number: 3}}</div>
+        <div class="stat">Count: {{game.count}}</div>
+        <div class="stat">Best Score: {{game.bestScore | number: 3}}</div>
+    </div>
+
+    <div class="game-space">
+        <div class="overlay" ng-show="game.gameOver">Your Final Score: {{game.finalScore | number: 3}}</div>
+        <div class="box" ng-hide="game.hidden" ng-click="game.boxClick()"></div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-danger btn-lg play-btn" ng-click="game.makeBox()">Play</button>
+        <br/><br/>
+        <button class="btn btn-default" ng-click="game.reset()">Reset</button>
+    </div>
+
+</div>

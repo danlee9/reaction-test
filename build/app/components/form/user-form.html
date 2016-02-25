@@ -1,0 +1,26 @@
+<!--form for both signing up and logging in-->
+<div class="row col-sm-6 col-sm-offset-3">
+    <div class="jumbotron">
+        <div ng-transclude></div>
+        <form ng-submit="user.submitInfo()">
+            <div class="form-group" ng-if="user.type == 'signup'"> <!-- Only shows up when signing up -->
+                <label>Name</label>
+                <input type="text" class="form-control" ng-model="user.userData.name"/>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" ng-model="user.userData.username"/>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" ng-model="user.userData.password"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-block btn-success">  <!-- Either creates a new user or logs in depending on type -->
+                    <span ng-if="user.processing" class="glyphicon glyphicon-repeat spinner"></span> <!-- loading animation -->
+                    <span ng-if="!user.processing">Submit</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

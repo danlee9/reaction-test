@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="jumbotron">
+            <div class="page-header">
+                <h1>{{profile.user.name}} <small>Profile Page</small></h1>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">Username: {{profile.user.username}}</li>
+                <li class="list-group-item">Best Score A: {{profile.user.bestscoreA | number: 3}}</li>
+                <li class="list-group-item">Best Score B: {{profile.user.bestscoreB | number: 3}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
